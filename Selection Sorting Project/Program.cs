@@ -84,12 +84,18 @@ class Student
         Console.WriteLine();
 
         //Phase 3: Allow the user to add more students if they want to
+        Console.WriteLine("1. Yes \n2. No");
         Console.Write("Do you want to add more students? Y/N: ");
-        string answer = Console.ReadLine();
 
-       
+        int answer = int.Parse(Console.ReadLine());
 
-        if (answer == "Y")
+         if(answer != 1 && answer != 2)
+         {
+            Console.Write("Invalid entry! Choose 1 or 2: ");
+            answer = int.Parse(Console.ReadLine());
+         }
+
+        if (answer == 1)
         {
             Console.Write("How many students do you want to add? : ");
             int num = int.Parse(Console.ReadLine());
@@ -141,20 +147,27 @@ class Student
                 Console.WriteLine(k + "." + Students[k - 1].ID + " \t" + Students[k - 1].name);
             }
             Console.WriteLine();
+            return;
         }
-        if(answer == "N")
+        if(answer == 2)
         {
             Console.WriteLine("Nothing was changed!");
             Console.WriteLine();
         }
-       
+        
 
         //Phase 4: Allow the user to remove students
+        Console.WriteLine();
+        Console.WriteLine("1. Yes \n2. No");
         Console.Write("Do you want to remove any student? Y/N: ");
-        string reply = Console.ReadLine();
+        int reply = int.Parse(Console.ReadLine());
        
-
-        if (reply == "Y")
+        if(reply != 1 && reply != 2)
+        {
+            Console.Write("Invalid entry! Choose 1 or 2: ");
+            reply = int.Parse(Console.ReadLine());
+        } 
+        if (reply == 1)
         {
             Console.Write("How many students do you want to remove?: ");
             int numb = int.Parse(Console.ReadLine());
@@ -173,6 +186,7 @@ class Student
                 else
                 {
                     Console.WriteLine("Student not found! Nothing was changed.");
+                    return;
                 }
             }
             Console.WriteLine("Students Updated List: ");
@@ -186,12 +200,14 @@ class Student
                 Console.WriteLine(k + "." + Students[k - 1].ID + " \t" + Students[k - 1].name);
             }
             Console.WriteLine();
+            return;
         }
-        if (reply == "N")
+        if (reply == 2)
         {
             Console.WriteLine("Nothing was changed!");
             Console.WriteLine();
         }
-       
+        
+
     }
 }
